@@ -1,0 +1,6 @@
+.idea
+.envrc
+*.log
+*.vim
+.vagrant/
+tmp/
