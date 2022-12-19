@@ -6,7 +6,7 @@ TEMP_DIR="$(mktemp -d)"
 trap 'rm -rf -- "$TEMP_DIR"' EXIT
 
 METRICS_DIR="/var/lib/prometheus/node-exporter"
-METRICS_FILE="${METRICS_DIR}/saltstack-highstate-metrics.prom"
+METRICS_FILE="${METRICS_DIR}/$(basename $0).prom"
 
 METRIC_HIGHSTATE_DISABLED=0
 METRIC_HIGHSTATE_RUN_COUNT=0
