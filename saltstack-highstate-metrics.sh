@@ -83,6 +83,12 @@ else
     fi
 
     METRIC_HIGHSTATE_LAST_RUN="$(date +%s)"
+
+    if [[ $METRIC_HIGHSTATE_STATE_FAILED_COUNT > 0 ]]; then
+        file="/tmp/$(basename $0)_$METRIC_HIGHSTATE_LAST_RUN.log"
+        echo "[ERROR] Failed states detected in last highstate run, saving highstate log file to: $file"
+        mv "$TEMP_DIR/highstate" "$file"
+    fi
 fi
 
 write_metrics
